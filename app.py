@@ -2,10 +2,18 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+with st.sidebar:
+    gubun = st.radio(
+    "학교 구분",
+    ('사립', '국공립'))
+
+    if gubun == '사립':
+        st.write(gubun)
+    else:
+        st.write(gubun)
 
 data = pd.read_csv('기숙사수용현황분석.csv')
 #st.dataframe(data)
-
 #st.metric(label="대한민국 대학교 수", value="70 °F", delta="1.2 °F")
 
 df=data[data["학교종류"]=="대학교"]
