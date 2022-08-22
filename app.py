@@ -15,7 +15,7 @@ num3=len(df[df["설립구분"]=="사립"]["학교"].unique())
 
 col1, col2, col3 = st.columns(3)
 col1.metric("대학 수", num1, "")
-col2.metric("국공립", num2, num2/num1*100)
-col3.metric("공립", num3, num3/num1*100)
+col2.metric("국공립", num2, num2/num1*100+"%")
+col3.metric("공립", num3, num3/num1*100+"%")
 
 #st.write('기숙사현황')
