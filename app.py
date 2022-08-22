@@ -29,7 +29,7 @@ with st.sidebar:
         dfg=df[df['설립구분']=='사립']
     else:
         dfg=df[df['설립구분']!='사립']
-    dfg=dfg.grounpby(['지역']).mean()[['기숙사수용률','입사경쟁률']]
+    dfg=dfg.groupby(['지역']).mean()[['기숙사수용률','입사경쟁률']]
     st.dataframe(dfg)
 
 #st.write('기숙사현황')
