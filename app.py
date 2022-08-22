@@ -2,16 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-with st.sidebar:
-    gubun = st.radio(
-    "학교 구분",
-    ('사립', '국공립'))
-
-    if gubun == '사립':
-        st.write(gubun)
-    else:
-        st.write(gubun)
-
 data = pd.read_csv('기숙사수용현황분석.csv')
 #st.dataframe(data)
 #st.metric(label="대한민국 대학교 수", value="70 °F", delta="1.2 °F")
@@ -29,5 +19,17 @@ strcol3=str(round(num3/num1*100,2))+" %"
 col1.metric("대학 수", num1, "")
 col2.metric("국공립", num2, strcol2)
 col3.metric("공립", num3, strcol3)
+
+with st.sidebar:
+    gubun = st.radio(
+    "학교 구분",
+    ('사립', '국공립'))
+
+    if gubun == '사립':
+        dfg=df[df['설립구분']=='사립']
+    else:
+        dfg=df[df['설립구분']!='사립']
+    dfg=dfg.grounpby(['지역']).mean()[['기숙사수용률','입사경쟁률']]
+    st.dataframe(dfg)
 
 #st.write('기숙사현황')
