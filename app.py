@@ -16,6 +16,8 @@ data = pd.read_csv('기숙사수용현황분석.csv')
 #st.dataframe(data)
 #st.metric(label="대한민국 대학교 수", value="70 °F", delta="1.2 °F")
 
+st.title(body, "대학 기숙사 현황 분석")
+
 df=data[data["학교종류"]=="대학교"]
 num1=len(df["학교"].unique())
 num2=len(df[df["설립구분"]!="사립"]["학교"].unique())
